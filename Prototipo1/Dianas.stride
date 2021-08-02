@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Dianas" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">Objetivos a destruir.</javadoc>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+        <import target="javax.swing.JOptionPane" enable="true"/>
+        <import target="javax.swing.JInternalFrame" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="sonido" value="new GreenfootSound(&quot;Dianas.mp3&quot;)" value-java=" new GreenfootSound(&quot;Dianas.mp3&quot;)" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Se establecen las dimensiones de las dianas.</comment>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="diana" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevolargo" value="(int)diana.getWidth()/4" value-java="(int)diana.getWidth() / 4" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="(int)diana.getHeight()/4" value-java="(int)diana.getHeight() / 4" enable="true"/>
+                <call expression="diana.scale(nuevolargo,nuevah)" expression-java="diana.scale(nuevolargo, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Método en el que se elimina la diana a la que se hace click, y genera otra en una posición aleatoria, cuyas coordenadas xy no son las mismas que otras dianas existentes.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <comment xml:space="preserve">Se declara e instancia la nueva diana.</comment>
+                        <variable type="Dianas" type-java="Dianas" name="d" value="new Dianas()" value-java=" new Dianas()" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">La imagen de la nueva diana se vuelve invisible.</comment>
+                        <call expression="d.getImage().setTransparency(0)" expression-java="d.getImage().setTransparency(0)" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Declaración de un vector que tendrá las nuevas 2 coordenadas de la nueva diana.</comment>
+                        <variable type="int[]" type-java="int[]" name="coor" value="new int[2]" value-java=" new int[2]" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Esta función define las coordenadas correctas para la nueva diana.</comment>
+                        <call expression="NuevaDiana(this,coor)" expression-java="NuevaDiana(this, coor)" enable="true"/>
+                        <blank/>
+                        <variable type="World" type-java="World" name="m1" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Se agrega la diana invisible.</comment>
+                        <call expression="m1.addObject(d,coor[0],coor[1])" expression-java="m1.addObject(d, coor[0], coor[1])" enable="true"/>
+                        <blank/>
+                        <blank/>
+                        <comment xml:space="preserve">Sonido cuando se destruye la diana.</comment>
+                        <call expression="sonido.play()" expression-java="sonido.play()" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Se elimina la diana clickeada.</comment>
+                        <call expression="m1.removeObject(this)" expression-java="m1.removeObject(this)" enable="true"/>
+                        <blank/>
+                        <variable type="MyWorld" type-java="MyWorld" name="m2" value="(MyWorld)m1" value-java="(MyWorld)m1" enable="true"/>
+                        <blank/>
+                        <variable type="Counter" type-java="Counter" name="c" value="m2.getCounter()" value-java="m2.getCounter()" enable="true"/>
+                        <blank/>
+                        <call expression="c.Sube()" expression-java="c.Sube()" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Se vuelve visible la nueva diana.</comment>
+                        <call expression="d.getImage().setTransparency(255)" expression-java="d.getImage().setTransparency(255)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="NuevaDiana" enable="true">
+            <javadoc xml:space="preserve">Método que asigna las nuevas coordenadas de la nueva diana, las cuales no son iguales a las demás.</javadoc>
+            <params>
+                <params type="Dianas" type-java="Dianas" name="d"/>
+                <params type="int[]" type-java="int[]" name="xy"/>
+            </params>
+            <throws/>
+            <body>
+                <variable type="boolean" type-java="boolean" name="b" value="false" value-java="false" enable="true"/>
+                <blank/>
+                <while condition="!b" condition-java=" ! b" enable="true">
+                    <assign dest="b" dest-java="b" src="false" src-java="false" enable="true"/>
+                    <assign dest="xy[0]" dest-java="xy[0]" src="Greenfoot.getRandomNumber(15)" src-java="Greenfoot.getRandomNumber(15)" enable="true"/>
+                    <assign dest="xy[1]" dest-java="xy[1]" src="Greenfoot.getRandomNumber(10)" src-java="Greenfoot.getRandomNumber(10)" enable="true"/>
+                    <if condition="(xy[0]!=5||xy[1]!=9)&amp;&amp;xy[0]!=6" condition-java="(xy[0] != 5 || xy[1] != 9) &amp;&amp; xy[0] != 6" enable="true">
+                        <ifStatements>
+                            <if condition="xy[0]&gt;=5" condition-java="xy[0] &gt;= 5" enable="true">
+                                <ifStatements>
+                                    <if condition="d.getX()!=xy[0]||d.getY()!=xy[1]" condition-java="d.getX() != xy[0] || d.getY() != xy[1]" enable="true">
+                                        <ifStatements>
+                                            <assign dest="b" dest-java="b" src="true" src-java="true" enable="true"/>
+                                        </ifStatements>
+                                    </if>
+                                </ifStatements>
+                            </if>
+                        </ifStatements>
+                    </if>
+                </while>
+            </body>
+        </method>
+    </methods>
+</class>

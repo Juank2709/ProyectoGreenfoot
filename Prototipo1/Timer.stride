@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Timer" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+        <import target="javax.swing.JOptionPane" enable="true"/>
+        <import target="javax.swing.JInternalFrame" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="timer" value="3000" value-java="3000" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Se establecen las dimensiones de la caja que tendrá el tiempo que sobra.</comment>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="timer" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevoancho" value="4*timer.getWidth()/5" value-java="4 * timer.getWidth() / 5" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="4*timer.getHeight()/5" value-java="4 * timer.getHeight() / 5" enable="true"/>
+                <call expression="timer.scale(nuevoancho,nuevah)" expression-java="timer.scale(nuevoancho, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="int" type-java="int" name="Reducir" enable="true">
+            <javadoc xml:space="preserve">Método que reduce el tiempo en 1 unidad mientras se ejecute el programa.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="timer" dest-java="timer" src="timer-1" src-java="timer - 1" enable="true"/>
+                <return value="timer" value-java="timer" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Método en el que si aún queda tiempo, se muestra en la pantalla y se reduce, y que cuando se acaba, se detiene el programa.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Reducir()&gt;0" condition-java="Reducir() &gt; 0" enable="true">
+                    <ifStatements>
+                        <call expression="getWorld().showText(Reducir()/100+&quot;&quot;,8,10)" expression-java="getWorld().showText(Reducir() / 100 + &quot;&quot;, 8, 10)" enable="true"/>
+                    </ifStatements>
+                    <else>
+                        <variable type="World" type-java="World" name="m1" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <variable type="MyWorld" type-java="MyWorld" name="m2" value="(MyWorld)m1" value-java="(MyWorld)m1" enable="true"/>
+                        <blank/>
+                        <if condition="m2.getCounter().scr&lt;300" condition-java="m2.getCounter().scr &lt; 300" enable="true">
+                            <ifStatements>
+                                <comment xml:space="preserve">Mensaje de motivación.</comment>
+                                <call expression="JOptionPane.showMessageDialog(new JInternalFrame(),&quot;No llegaste al objetivo esta vez, pero sigue practicando con el arco y flecha, y pronto alcanzarás la meta y se hará justicia para Jacinto.&quot;,&quot;¡Pronto lo lograrás!&quot;,JOptionPane.INFORMATION_MESSAGE)" expression-java="JOptionPane.showMessageDialog( new JInternalFrame(), &quot;No llegaste al objetivo esta vez, pero sigue practicando con el arco y flecha, y pronto alcanzarás la meta y se hará justicia para Jacinto.&quot;, &quot;¡Pronto lo lograrás!&quot;, JOptionPane.INFORMATION_MESSAGE)" enable="true"/>
+                            </ifStatements>
+                            <else>
+                                <comment xml:space="preserve">Mensaje de victoria.</comment>
+                                <call expression="JOptionPane.showMessageDialog(new JInternalFrame(),&quot;¡Lo lograste! Gracias a ti, Jacinto le explicó todo al rey y se ha hecho justicia para él. El que lo incriminó irá a la cárcel y él regresó a ser el soldado real más noble del reino.&quot;,&quot;Victoria&quot;,JOptionPane.INFORMATION_MESSAGE)" expression-java="JOptionPane.showMessageDialog( new JInternalFrame(), &quot;¡Lo lograste! Gracias a ti, Jacinto le explicó todo al rey y se ha hecho justicia para él. El que lo incriminó irá a la cárcel y él regresó a ser el soldado real más noble del reino.&quot;, &quot;Victoria&quot;, JOptionPane.INFORMATION_MESSAGE)" enable="true"/>
+                                <blank/>
+                                <comment xml:space="preserve">Se agrega el objeto de la gente celebrando si Jacinto gana.</comment>
+                                <call expression="getWorld().addObject(new Gente(),2,10)" expression-java="getWorld().addObject( new Gente(), 2, 10)" enable="true"/>
+                            </else>
+                        </if>
+                        <blank/>
+                        <comment xml:space="preserve">Se detiene el programa del juego.</comment>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="true"/>
+                    </else>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

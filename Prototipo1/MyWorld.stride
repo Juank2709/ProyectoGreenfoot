@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="MyWorld" extends="World" extends-java="World" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+        <import target="javax.swing.JOptionPane" enable="true"/>
+        <import target="javax.swing.JInternalFrame" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <comment xml:space="preserve">Variable global necesaria para desplegar el puntaje y el mensaje dependiendo si logró el objetivo o no.</comment>
+        <variable access="public" type="Counter" type-java="Counter" name="ctr" value="new Counter()" value-java=" new Counter()" enable="true"/>
+        <blank/>
+        <comment xml:space="preserve">Variable que contiene la música para el juego y del error en el tiro.</comment>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="Fondo" value="new GreenfootSound(&quot;Audio_Juego.mp3&quot;)" value-java=" new GreenfootSound(&quot;Audio_Juego.mp3&quot;)" enable="true"/>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="Error" value="new GreenfootSound(&quot;Error.mp3&quot;)" value-java=" new GreenfootSound(&quot;Error.mp3&quot;)" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
+            <params/>
+            <throws/>
+            <delegate target="super" params="20,11,60" params-java="20, 11, 60"/>
+            <body>
+                <comment xml:space="preserve">Se establece el fondo.</comment>
+                <call expression="setBackground(&quot;Cuadro.jpg&quot;)" expression-java="setBackground(&quot;Cuadro.jpg&quot;)" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se agregan las primeras 3 dianas, las 2 torres, Jacinto y el timer.</comment>
+                <call expression="AgregarActores()" expression-java="AgregarActores()" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Mensaje con la historia de Jacinto.</comment>
+                <call expression="JOptionPane.showMessageDialog(new JInternalFrame(),&quot;Eres Jacinto de NotreDame, y has sido incriminado...Te llevan a la cárcel, pero escapas...Ves el afiche de una competencia que ofrece al ganador una visita con el rey. ¡Destruya la mayor cantidad de dianas que puedas!&quot;,&quot;Historia&quot;,JOptionPane.INFORMATION_MESSAGE)" expression-java="JOptionPane.showMessageDialog( new JInternalFrame(), &quot;Eres Jacinto de NotreDame, y has sido incriminado...Te llevan a la cárcel, pero escapas...Ves el afiche de una competencia que ofrece al ganador una visita con el rey. ¡Destruya la mayor cantidad de dianas que puedas!&quot;, &quot;Historia&quot;, JOptionPane.INFORMATION_MESSAGE)" enable="true"/>
+                <call expression="JOptionPane.showMessageDialog(new JInternalFrame(),&quot;La meta son 300 puntos.&quot;,&quot;Historia&quot;,JOptionPane.INFORMATION_MESSAGE)" expression-java="JOptionPane.showMessageDialog( new JInternalFrame(), &quot;La meta son 300 puntos.&quot;, &quot;Historia&quot;, JOptionPane.INFORMATION_MESSAGE)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="private" type="void" type-java="void" name="AgregarActores" enable="true">
+            <javadoc xml:space="preserve">Método que agrega los actores en el mundo.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Instancias de los actores a agregar en el mundo.</comment>
+                <variable type="Jacinto" type-java="Jacinto" name="jac" value="new Jacinto()" value-java=" new Jacinto()" enable="true"/>
+                <variable type="Torre" type-java="Torre" name="torre1" value="new Torre()" value-java=" new Torre()" enable="true"/>
+                <variable type="Torre" type-java="Torre" name="torre2" value="new Torre()" value-java=" new Torre()" enable="true"/>
+                <variable type="Timer" type-java="Timer" name="t" value="new Timer()" value-java=" new Timer()" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se agrega Jacinto</comment>
+                <call expression="addObject(jac,5,10)" expression-java="addObject(jac, 5, 10)" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se agregan las dos torres para fondo del mundo.</comment>
+                <call expression="addObject(torre1,2,5)" expression-java="addObject(torre1, 2, 5)" enable="true"/>
+                <call expression="addObject(torre2,17,5)" expression-java="addObject(torre2, 17, 5)" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se agrega el timer.</comment>
+                <call expression="addObject(t,8,10)" expression-java="addObject(t, 8, 10)" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se agrega el counter al mundo.</comment>
+                <call expression="addObject(ctr,11,10)" expression-java="addObject(ctr, 11, 10)" enable="true"/>
+                <call expression="PrimerasDianas()" expression-java="PrimerasDianas()" enable="true"/>
+            </body>
+        </method>
+        <method access="private" type="void" type-java="void" name="PrimerasDianas" enable="true">
+            <javadoc xml:space="preserve">Método del mundo que hace coloca las 3 primeras dianas del nivel</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="Dianas[]" type-java="Dianas[]" name="ds" value="new Dianas[3]" value-java=" new Dianas[3]" enable="true"/>
+                <variable type="int" type-java="int" name="i" value="0" value-java="0" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">Se hace 3 veces.</comment>
+                <while condition="i&lt;ds.length" condition-java="i &lt; ds.length" enable="true">
+                    <assign dest="ds[i]" dest-java="ds[i]" src="new Dianas()" src-java=" new Dianas()" enable="true"/>
+                    <variable type="boolean" type-java="boolean" name="b" value="false" value-java="false" enable="true"/>
+                    <variable type="int" type-java="int" name="x" value="0" value-java="0" enable="true"/>
+                    <variable type="int" type-java="int" name="y" value="0" value-java="0" enable="true"/>
+                    <blank/>
+                    <comment xml:space="preserve">Ciclo que asigna coordendas xy tantas veces como sea necesario con el fin de que cumplan las condiciones: estar dentro del rango y no ser las mismas que las de Jacinto (5, 9).</comment>
+                    <while condition="!b" condition-java=" ! b" enable="true">
+                        <assign dest="x" dest-java="x" src="Greenfoot.getRandomNumber(15)" src-java="Greenfoot.getRandomNumber(15)" enable="true"/>
+                        <assign dest="y" dest-java="y" src="Greenfoot.getRandomNumber(10)" src-java="Greenfoot.getRandomNumber(10)" enable="true"/>
+                        <if condition="((x!=5)||(y!=9))&amp;&amp;x!=6" condition-java="((x != 5) || (y != 9)) &amp;&amp; x != 6" enable="true">
+                            <ifStatements>
+                                <if condition="x&gt;=5" condition-java="x &gt;= 5" enable="true">
+                                    <ifStatements>
+                                        <if condition="i==0" condition-java="i == 0" enable="true">
+                                            <ifStatements>
+                                                <assign dest="b" dest-java="b" src="true" src-java="true" enable="true"/>
+                                            </ifStatements>
+                                            <else>
+                                                <assign dest="b" dest-java="b" src="NoRepetidos(x,y,i,ds)" src-java="NoRepetidos(x, y, i, ds)" enable="true"/>
+                                            </else>
+                                        </if>
+                                    </ifStatements>
+                                </if>
+                            </ifStatements>
+                        </if>
+                    </while>
+                    <comment xml:space="preserve">Si se cumple que los coordenadas estén dentro de los rengos, agrega el objeto.</comment>
+                    <call expression="addObject(ds[i],x,y)" expression-java="addObject(ds[i], x, y)" enable="true"/>
+                    <blank/>
+                    <comment xml:space="preserve">Incremento de la variable del ciclo principal.</comment>
+                    <assign dest="i" dest-java="i" src="i+1" src-java="i + 1" enable="true"/>
+                </while>
+            </body>
+        </method>
+        <method access="private" type="boolean" type-java="boolean" name="NoRepetidos" enable="true">
+            <javadoc xml:space="preserve">Método que hace que las coordenadas de las 3 primeras dianas no sean las mismas.</javadoc>
+            <params>
+                <params type="int" type-java="int" name="x"/>
+                <params type="int" type-java="int" name="y"/>
+                <params type="int" type-java="int" name="i"/>
+                <params type="Dianas[]" type-java="Dianas[]" name="d"/>
+            </params>
+            <throws/>
+            <body>
+                <if condition="i==1" condition-java="i == 1" enable="true">
+                    <ifStatements>
+                        <if condition="(d[0].getX()!=x)&amp;&amp;(d[0].getY()!=y)" condition-java="(d[0].getX() != x) &amp;&amp; (d[0].getY() != y)" enable="true">
+                            <ifStatements>
+                                <return value="true" value-java="true" enable="true"/>
+                            </ifStatements>
+                            <else>
+                                <return value="false" value-java="false" enable="true"/>
+                            </else>
+                        </if>
+                    </ifStatements>
+                    <else>
+                        <variable type="int" type-java="int" name="k" value="0" value-java="0" enable="true"/>
+                        <variable type="boolean" type-java="boolean" name="b" value="true" value-java="true" enable="true"/>
+                        <while condition="(k&lt;i)&amp;&amp;b" condition-java="(k &lt; i) &amp;&amp; b" enable="true">
+                            <if condition="(d[k].getX()==x)&amp;&amp;(d[k].getY()==y)" condition-java="(d[k].getX() == x) &amp;&amp; (d[k].getY() == y)" enable="true">
+                                <ifStatements>
+                                    <assign dest="b" dest-java="b" src="false" src-java="false" enable="true"/>
+                                </ifStatements>
+                            </if>
+                            <assign dest="k" dest-java="k" src="k+1" src-java="k + 1" enable="true"/>
+                        </while>
+                        <return value="b" value-java="b" enable="true"/>
+                    </else>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="Counter" type-java="Counter" name="getCounter" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <return value="ctr" value-java="ctr" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Para que la música suene a la vez que el juego corra.</comment>
+                <call expression="Fondo.play()" expression-java="Fondo.play()" enable="true"/>
+                <blank/>
+                <comment xml:space="preserve">En caso de que le hagan click al mundo, bajan los puntos.</comment>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <call expression="Error.play()" expression-java="Error.play()" enable="true"/>
+                        <call expression="ctr.Baja()" expression-java="ctr.Baja()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

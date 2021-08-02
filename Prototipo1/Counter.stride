@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Counter" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <comment xml:space="preserve">Contador de los puntos.</comment>
+        <variable access="public" type="int" type-java="int" name="scr" value="0" value-java="0" enable="true"/>
+        <blank/>
+        <comment xml:space="preserve">Contador secundario de las dianas destruidas consecutivamente (streak).</comment>
+        <variable access="public" type="int" type-java="int" name="streak" value="0" value-java="0" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Se establecen las dimensiones del cuadro donde se desplegarán los puntos.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="ctr" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevoancho" value="17*ctr.getWidth()/10" value-java="17 * ctr.getWidth() / 10" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="13*ctr.getHeight()/10" value-java="13 * ctr.getHeight() / 10" enable="true"/>
+                <call expression="ctr.scale(nuevoancho,nuevah)" expression-java="ctr.scale(nuevoancho, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Counter wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="getWorld().showText(&quot;Pts: &quot;+scr,11,10)" expression-java="getWorld().showText(&quot;Pts: &quot; + scr, 11, 10)" enable="true"/>
+                <call expression="getWorld().showText(&quot;Streak x&quot;+streak,13,10)" expression-java="getWorld().showText(&quot;Streak x&quot; + streak, 13, 10)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="Sube" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <assign dest="scr" dest-java="scr" src="scr+5" src-java="scr + 5" enable="true"/>
+                <assign dest="streak" dest-java="streak" src="streak+1" src-java="streak + 1" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="Baja" enable="true">
+            <javadoc xml:space="preserve">Método que disminuye el contador puntos cuando toca el mundo.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="scr&gt;0" condition-java="scr &gt; 0" enable="true">
+                    <ifStatements>
+                        <assign dest="scr" dest-java="scr" src="scr-5" src-java="scr - 5" enable="true"/>
+                        <assign dest="streak" dest-java="streak" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="Baja2" enable="true">
+            <javadoc xml:space="preserve">Método que disminuye significativamente el contador de puntos cuando toca a Jacinto.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Si el puntaje es mayor a 10, entonces puede reducirlo en esa cantidad.</comment>
+                <if condition="scr&gt;=10" condition-java="scr &gt;= 10" enable="true">
+                    <ifStatements>
+                        <assign dest="scr" dest-java="scr" src="scr-10" src-java="scr - 10" enable="true"/>
+                        <assign dest="streak" dest-java="streak" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                    <else>
+                        <comment xml:space="preserve">Si el puntaje es menor a 10, simplemente lo inicializa a 0.</comment>
+                        <assign dest="scr" dest-java="scr" src="0" src-java="0" enable="true"/>
+                        <assign dest="streak" dest-java="streak" src="0" src-java="0" enable="true"/>
+                    </else>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

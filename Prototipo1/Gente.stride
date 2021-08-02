@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Gente" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">El constructor define las dimensiones de la gente celebrando.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="g" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevoancho" value="g.getWidth()/4" value-java="g.getWidth() / 4" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="g.getHeight()/6" value-java="g.getHeight() / 6" enable="true"/>
+                <call expression="g.scale(nuevoancho,nuevah)" expression-java="g.scale(nuevoancho, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods/>
+</class>

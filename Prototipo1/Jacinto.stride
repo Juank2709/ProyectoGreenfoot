@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Jacinto" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="Error" value="new GreenfootSound(&quot;Error.mp3&quot;)" value-java=" new GreenfootSound(&quot;Error.mp3&quot;)" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Se establecen las dimensiones de Jacinto.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Se establecen las dimensiones de Jacinto.</comment>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="jac" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevolargo" value="(int)jac.getWidth()/10" value-java="(int)jac.getWidth() / 10" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="2*(int)jac.getHeight()/15" value-java="2 * (int)jac.getHeight() / 15" enable="true"/>
+                <call expression="jac.scale(nuevolargo,nuevah)" expression-java="jac.scale(nuevolargo, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <variable type="World" type-java="World" name="m1" value="getWorld()" value-java="getWorld()" enable="true"/>
+                        <variable type="MyWorld" type-java="MyWorld" name="m2" value="(MyWorld)m1" value-java="(MyWorld)m1" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Se reproduce el sonido de error.</comment>
+                        <call expression="Error.play()" expression-java="Error.play()" enable="true"/>
+                        <blank/>
+                        <comment xml:space="preserve">Se reduce el contador.</comment>
+                        <call expression="m2.getCounter().Baja2()" expression-java="m2.getCounter().Baja2()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>

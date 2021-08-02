@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Dianas
+comment0.text=\r\n\ Objetivos\ a\ destruir.\r\n
+comment1.params=
+comment1.target=Dianas()
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ M\u00E9todo\ en\ el\ que\ se\ elimina\ la\ diana\ a\ la\ que\ se\ hace\ click,\ y\ genera\ otra\ en\ una\ posici\u00F3n\ aleatoria,\ cuyas\ coordenadas\ xy\ no\ son\ las\ mismas\ que\ otras\ dianas\ existentes.\r\n
+comment3.params=d\ xy
+comment3.target=void\ NuevaDiana(Dianas,\ int[])
+comment3.text=\r\n\ M\u00E9todo\ que\ asigna\ las\ nuevas\ coordenadas\ de\ la\ nueva\ diana,\ las\ cuales\ no\ son\ iguales\ a\ las\ dem\u00E1s.\r\n
+numComments=4

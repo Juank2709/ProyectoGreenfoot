@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Torre
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=Torre()
+comment1.text=\r\n\ Se\ establecen\ las\ dimensiones\ de\ las\ torres.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ M\u00E9todo\ que\ si\ detecta\ un\ click\ en\ las\ torres,\ baja\ puntos\ y\ reinicia\ el\ streak.\r\n
+numComments=3

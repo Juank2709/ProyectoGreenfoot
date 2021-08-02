@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Timer
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=Timer()
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=int\ Reducir()
+comment2.text=\r\n\ M\u00E9todo\ que\ reduce\ el\ tiempo\ en\ 1\ unidad\ mientras\ se\ ejecute\ el\ programa.\r\n
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\r\n\ M\u00E9todo\ en\ el\ que\ si\ a\u00FAn\ queda\ tiempo,\ se\ muestra\ en\ la\ pantalla\ y\ se\ reduce,\ y\ que\ cuando\ se\ acaba,\ se\ detiene\ el\ programa.\r\n
+numComments=4

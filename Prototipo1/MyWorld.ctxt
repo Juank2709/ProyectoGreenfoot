@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=MyWorld
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=MyWorld()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n
+comment2.params=
+comment2.target=void\ AgregarActores()
+comment2.text=\r\n\ M\u00E9todo\ que\ agrega\ los\ actores\ en\ el\ mundo.\r\n
+comment3.params=
+comment3.target=void\ PrimerasDianas()
+comment3.text=\r\n\ M\u00E9todo\ del\ mundo\ que\ hace\ coloca\ las\ 3\ primeras\ dianas\ del\ nivel\r\n
+comment4.params=x\ y\ i\ d
+comment4.target=boolean\ NoRepetidos(int,\ int,\ int,\ Dianas[])
+comment4.text=\r\n\ M\u00E9todo\ que\ hace\ que\ las\ coordenadas\ de\ las\ 3\ primeras\ dianas\ no\ sean\ las\ mismas.\r\n
+comment5.params=
+comment5.target=Counter\ getCounter()
+comment5.text=\r\n\ \r\n
+comment6.params=
+comment6.target=void\ act()
+comment6.text=\r\n\ \r\n
+numComments=7

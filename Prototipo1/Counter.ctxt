@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Counter
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=Counter()
+comment1.text=\r\n\ Se\ establecen\ las\ dimensiones\ del\ cuadro\ donde\ se\ desplegar\u00E1n\ los\ puntos.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Counter\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ Sube()
+comment3.text=\r\n\ \r\n
+comment4.params=
+comment4.target=void\ Baja()
+comment4.text=\r\n\ M\u00E9todo\ que\ disminuye\ el\ contador\ puntos\ cuando\ toca\ el\ mundo.\r\n
+comment5.params=
+comment5.target=void\ Baja2()
+comment5.text=\r\n\ M\u00E9todo\ que\ disminuye\ significativamente\ el\ contador\ de\ puntos\ cuando\ toca\ a\ Jacinto.\r\n
+numComments=6

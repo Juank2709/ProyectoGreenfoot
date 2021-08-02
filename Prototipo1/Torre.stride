@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Torre" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="Error" value="new GreenfootSound(&quot;Error.mp3&quot;)" value-java=" new GreenfootSound(&quot;Error.mp3&quot;)" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve">Se establecen las dimensiones de las torres.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Se establecen las dimensiones de la torre.</comment>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="t" value="getImage()" value-java="getImage()" enable="true"/>
+                <variable type="int" type-java="int" name="nuevoancho" value="(t.getWidth()*3)/2" value-java="(t.getWidth() * 3) / 2" enable="true"/>
+                <variable type="int" type-java="int" name="nuevah" value="(t.getHeight()*6)/2" value-java="(t.getHeight() * 6) / 2" enable="true"/>
+                <call expression="t.scale(nuevoancho,nuevah)" expression-java="t.scale(nuevoancho, nuevah)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Método que si detecta un click en las torres, baja puntos y reinicia el streak.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="Greenfoot.mouseClicked(this)" condition-java="Greenfoot.mouseClicked(this)" enable="true">
+                    <ifStatements>
+                        <variable type="MyWorld" type-java="MyWorld" name="m" value="(MyWorld)getWorld()" value-java="(MyWorld)getWorld()" enable="true"/>
+                        <call expression="Error.play()" expression-java="Error.play()" enable="true"/>
+                        <call expression="m.getCounter().Baja2()" expression-java="m.getCounter().Baja2()" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>
